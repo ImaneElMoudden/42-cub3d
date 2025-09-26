@@ -31,10 +31,11 @@
 # define BASE_ROT_SPEED 2.0f  // 2 radians per second
 
 // minimap
-# define TEX_SIZE 64
+# define TEX_SIZE 15
 # define OFFSET 20
-# define VIEW_RADIUS 8
-# define MINIMAP_SIZE (WIDTH / 6)
+# define VIEW_RADIUS 4
+# define MINIMAP_SIZE (WIDTH / 5)
+# define NB_TILES ((double)MINIMAP_SIZE / TEX_SIZE)
 
 // mouse
 # define MOUSE_SENS 0.003f // radians per pixel
@@ -127,10 +128,12 @@ typedef struct s_sprite
 
 typedef struct s_minimap
 {
-	int				start_x;
-	int				end_x;
-	int				start_y;
-	int				end_y;
+	double			start_x;
+	double			end_x;
+	double			start_y;
+	double			end_y;
+	double          player_pos_x;
+	double          player_pos_y;
 	int				minimap_size;
 	int				unit_size;
 }					t_minimap;
@@ -141,7 +144,7 @@ typedef struct s_input
 	char			*so_path;
 	char			*we_path;
 	char			*ea_path;
-	int				floor_color;
+	int				floor_color; // type
 	int				ceiling_color;
 	int				input_fd;
 	char			player_dir;
