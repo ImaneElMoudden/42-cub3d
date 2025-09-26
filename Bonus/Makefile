@@ -11,9 +11,9 @@ SRC = cub3d_bonus.c init_bonus.c \
 		color_utils_bonus.c \
 		clean_bonus.c \
 
-NAME = cub3D
+NAME = cub3D_bonus
 OBJ = $(SRC:.c=.o)
-MLXFLAGS = -L./minilibx-linux -lmlx -lX11 -lXext -lm -g
+MLXFLAGS = -L/usr/include/minilibx-linux -lmlx -lX11 -lXext -lm -g
 HDR = cub3d_bonus.h
 
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 18:46:27 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/09/25 10:30:46 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/09/26 10:39:09 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ int	handle_key_release(int key, void *p)
 		m->keys[KEY_LEFT] = 0;
 	if (key == XK_Right)
 		m->keys[KEY_RIGHT] = 0;
-	if (key == XK_e)
-		m->keys[KEY_E] = 0;
 	return (0);
 }
 

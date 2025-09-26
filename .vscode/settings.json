@@ -1,5 +1,11 @@
 {
     "files.associations": {
-        "cub3d_bonus.h": "c"
+        "cub3d_bonus.h": "c",
+        "types.h": "c",
+        "string.h": "c",
+        "unistd.h": "c",
+        "mlx.h": "c",
+        "time.h": "c",
+        "stdlib.h": "c"
     }
 }

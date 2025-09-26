@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 21:01:18 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/09/25 10:30:46 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/09/26 10:37:19 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,5 @@ void	handle_door(t_map *map)
 		map->map[ny][nx] = 'D';
 	else if (map->map[ny][nx] == 'D')
 		map->map[ny][nx] = 'd';
+	game_data()->mlx.keys[KEY_E] = 0;
 }
