@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: klamachi <klamachi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 09:39:27 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/09/26 10:52:54 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/09/26 11:19:25 by klamachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <stdlib.h>
 # include <sys/time.h>
 # include <unistd.h>
+// delete 
+# include <stdio.h>
 
 # define WIDTH 800
 # define HEIGHT 600

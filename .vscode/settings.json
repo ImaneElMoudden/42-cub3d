@@ -6,6 +6,7 @@
         "unistd.h": "c",
         "mlx.h": "c",
         "time.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "cub3d.h": "c"
     }
 }
