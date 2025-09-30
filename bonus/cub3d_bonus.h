@@ -6,7 +6,7 @@
 /*   By: klamachi <klamachi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 09:39:27 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/09/26 11:19:25 by klamachi         ###   ########.fr       */
+/*   Updated: 2025/09/30 16:08:19 by klamachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@
 # define TEX_SIZE 15
 # define OFFSET 20
 # define VIEW_RADIUS 4
-# define MINIMAP_SIZE (WIDTH / 5)
-# define NB_TILES ((double)MINIMAP_SIZE / TEX_SIZE)
 
 // mouse
 # define MOUSE_SENS 0.003f
@@ -61,21 +59,22 @@
 # endif
 
 // typedef
-typedef struct s_player		t_player;
-typedef struct s_ray		t_ray;
-typedef struct s_img		t_img;
-typedef enum e_dir			t_dir;
-typedef enum e_key			t_key;
-typedef struct s_sprite		s_sprite;
-typedef struct s_minimap	t_minimap;
-typedef struct s_input		t_input;
-typedef struct s_malloc		t_malloc;
-typedef struct s_map		t_map;
-typedef struct s_mlx		t_mlx;
-typedef struct s_mouse		t_mouse;
-typedef struct s_time		t_time;
-typedef struct s_draw		t_draw;
-typedef struct s_game		t_game;
+typedef struct s_player			t_player;
+typedef struct s_ray			t_ray;
+typedef struct s_img			t_img;
+typedef enum e_dir				t_dir;
+typedef enum e_key				t_key;
+typedef struct s_sprite			t_sprite;
+typedef struct s_minimap		t_minimap;
+typedef struct s_minimap_var	t_minimap_var;
+typedef struct s_input			t_input;
+typedef struct s_malloc			t_malloc;
+typedef struct s_map			t_map;
+typedef struct s_mlx			t_mlx;
+typedef struct s_mouse			t_mouse;
+typedef struct s_time			t_time;
+typedef struct s_draw			t_draw;
+typedef struct s_game			t_game;
 
 // structs
 struct						s_player
@@ -158,6 +157,16 @@ struct						s_minimap
 	double					player_pos_y;
 	int						minimap_size;
 	int						unit_size;
+};
+
+struct						s_minimap_var{
+	int						x;
+	int						y;
+	unsigned int			color;
+	int						minimap_size;
+	int						nb_tiles;
+	int						minimap_x;
+	int						minimap_y;
 };
 
 struct						s_input
