@@ -6,7 +6,7 @@
 /*   By: klamachi <klamachi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:55:59 by klamachi          #+#    #+#             */
-/*   Updated: 2025/09/29 13:59:32 by klamachi         ###   ########.fr       */
+/*   Updated: 2025/10/09 13:47:46 by klamachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 # include <sys/time.h>
 # include <unistd.h>
 
-# define WIDTH 800
-# define HEIGHT 600
-// # define WIDTH 1920
-// # define HEIGHT 1080
+// # define WIDTH 800
+// # define HEIGHT 600
+# define WIDTH 1920
+# define HEIGHT 1080
 # ifndef M_PI
 #  define M_PI 3.14159265358979323846
 # endif

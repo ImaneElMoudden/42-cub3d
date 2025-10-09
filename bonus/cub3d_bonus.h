@@ -6,7 +6,7 @@
 /*   By: klamachi <klamachi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 09:39:27 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/09/30 16:08:19 by klamachi         ###   ########.fr       */
+/*   Updated: 2025/10/09 15:44:27 by klamachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ typedef enum e_dir				t_dir;
 typedef enum e_key				t_key;
 typedef struct s_sprite			t_sprite;
 typedef struct s_minimap		t_minimap;
-typedef struct s_minimap_var	t_minimap_var;
 typedef struct s_input			t_input;
 typedef struct s_malloc			t_malloc;
 typedef struct s_map			t_map;
@@ -156,17 +155,12 @@ struct						s_minimap
 	double					player_pos_x;
 	double					player_pos_y;
 	int						minimap_size;
-	int						unit_size;
-};
-
-struct						s_minimap_var{
+	int						nb_tiles;
 	int						x;
 	int						y;
 	unsigned int			color;
-	int						minimap_size;
-	int						nb_tiles;
-	int						minimap_x;
-	int						minimap_y;
+	int						player_pixel_x;
+	int						player_pixel_y;
 };
 
 struct						s_input
@@ -313,6 +307,7 @@ void						handle_door(t_map *map);
 
 // minimap
 void						display_minimap(void);
+void						draw_player_dir(t_game *game, unsigned int color);
 
 // color_utils
 void						put_pixel(t_img *img, int x, int y, int color);
