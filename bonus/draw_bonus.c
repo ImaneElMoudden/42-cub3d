@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/24 10:33:34 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/09/25 10:30:46 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/09 18:39:20 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,11 @@ static void	calculations(t_game *game, t_img *texture)
 	else
 		draw->wall_x = player->pos_x + ray->perpwall_dist * ray->raydir_x;
 	draw->wall_x -= floor(draw->wall_x);
-	draw->tex_x = (int)(draw->wall_x * (float)texture->width);
+	draw->tex_x = (int)(draw->wall_x * (double)texture->width);
 	if ((ray->side == 0 && ray->raydir_x > 0) || (ray->side == 1
 			&& ray->raydir_y < 0))
 		draw->tex_x = texture->width - draw->tex_x - 1;
-	draw->step = 1.0f * texture->height / ray->line_height;
+	draw->step = 1.0 * texture->height / ray->line_height;
 	draw->tex_pos = (ray->draw_start - HEIGHT / 2 + ray->line_height / 2)
 		* draw->step;
 }

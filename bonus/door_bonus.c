@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 21:01:18 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/09/26 10:51:49 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/09 18:37:46 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	handle_door(t_map *map)
 {
 	t_player	*player;
-	float		new_x;
-	float		new_y;
+	double		new_x;
+	double		new_y;
 	int			nx;
 	int			ny;
 

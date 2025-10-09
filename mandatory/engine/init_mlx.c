@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klamachi <klamachi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:39:02 by klamachi          #+#    #+#             */
-/*   Updated: 2025/09/29 14:14:26 by klamachi         ###   ########.fr       */
+/*   Updated: 2025/10/09 18:53:10 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ static void	init_main_img(t_mlx *mlx)
 	img = &mlx->img;
 	img->mlx_img = mlx_new_image(mlx->mlx, WIDTH, HEIGHT);
 	if (!img->mlx_img)
-		exit_with_error("Error: mlx_new_image failed !");
+		exit_with_error("mlx_new_image failed !");
 	img->addr = mlx_get_data_addr(img->mlx_img, &img->bpp,
 			&img->line_len, &img->endian);
 	if (!img->addr)
-		exit_with_error("Error: mlx_get_data_addr failed !");
+		exit_with_error("mlx_get_data_addr failed !");
 }
 
 static void	load_texture(t_mlx *mlx, int dir, char *path)
@@ -67,10 +67,10 @@ void	init_mlx_var(void)
 	mlx = &game->mlx;
 	mlx->mlx = mlx_init();
 	if (!mlx->mlx)
-		exit_with_error("Error: mlx_init failed !");
+		exit_with_error("mlx_init failed !");
 	mlx->mlx_win = mlx_new_window(mlx->mlx, WIDTH, HEIGHT, "CUB3D");
 	if (!mlx->mlx_win)
-		exit_with_error("Error: mlx_new_window failed !");
+		exit_with_error("mlx_new_window failed !");
 	init_main_img(&game->mlx);
 	init_textures(&game->mlx, &game->input);
 }

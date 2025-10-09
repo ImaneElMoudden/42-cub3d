@@ -6,19 +6,19 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 20:05:40 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/09/25 10:30:46 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/09 18:37:46 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-void	rotate(float angle)
+void	rotate(double angle)
 {
 	t_player	*p;
-	float		old_dir_x;
-	float		old_plane_x;
-	float		c;
-	float		s;
+	double		old_dir_x;
+	double		old_plane_x;
+	double		c;
+	double		s;
 
 	p = &game_data()->player;
 	old_dir_x = p->dir_x;
@@ -34,7 +34,7 @@ void	rotate(float angle)
 void	rotate_left(void)
 {
 	t_game	*game;
-	float	rot_speed;
+	double	rot_speed;
 
 	game = game_data();
 	rot_speed = BASE_ROT_SPEED * game->time.delta_time;
@@ -44,7 +44,7 @@ void	rotate_left(void)
 void	rotate_right(void)
 {
 	t_game	*game;
-	float	rot_speed;
+	double	rot_speed;
 
 	game = game_data();
 	rot_speed = BASE_ROT_SPEED * game->time.delta_time;

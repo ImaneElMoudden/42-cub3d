@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klamachi <klamachi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:15:10 by klamachi          #+#    #+#             */
-/*   Updated: 2025/09/29 13:15:13 by klamachi         ###   ########.fr       */
+/*   Updated: 2025/10/09 18:47:16 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ static int	is_player_tile(char c)
 
 static int	is_valid_tile(char c)
 {
-	return (is_player_tile(c) || c == '0' || c == '1' || c == ' ' || c == 'd'
-		|| c == 'D');
+	return (is_player_tile(c) || c == '0' || c == '1' || c == ' ');
 }
 
 static int	validate_grid(int i, int j, char c, int *count)

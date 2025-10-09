@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map_borders.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klamachi <klamachi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:15:05 by klamachi          #+#    #+#             */
-/*   Updated: 2025/09/29 13:15:08 by klamachi         ###   ########.fr       */
+/*   Updated: 2025/10/09 18:46:52 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
-
-static int	is_walkable_tile(char c)
-{
-	return (c == '0' || c == 'd' || c == 'D');
-}
 
 static int	check_corners(int y, int x, int len)
 {
@@ -50,7 +45,7 @@ int	check_map_boundaries(void)
 		x = 0;
 		while (map->map[y][x])
 		{
-			if (is_walkable_tile(map->map[y][x]) && check_corners(y, x, len))
+			if (map->map[y][x] == '0' && check_corners(y, x, len))
 				return (write_error("Map: map must be surrounded by walls\n"));
 			x++;
 		}

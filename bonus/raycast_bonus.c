@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 18:04:56 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/09/25 10:30:46 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/09 18:37:46 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	calculate_raydir(int x)
 	game = game_data();
 	ray = &game->ray;
 	player = &game->player;
-	ray->camera_x = 2 * x / (float)WIDTH - 1;
+	ray->camera_x = 2 * x / (double)WIDTH - 1;
 	ray->raydir_x = player->dir_x + player->plane_x * ray->camera_x;
 	ray->raydir_y = player->dir_y + player->plane_y * ray->camera_x;
 	ray->map_x = (int)player->pos_x;

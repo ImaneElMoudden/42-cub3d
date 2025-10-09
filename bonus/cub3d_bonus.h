@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klamachi <klamachi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 09:39:27 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/10/09 15:44:27 by klamachi         ###   ########.fr       */
+/*   Updated: 2025/10/09 18:45:24 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,8 @@
 # define FOV 60
 
 // movement
-# define MARGIN 0.2
-# define BASE_MOVE_SPEED 3.0f
-# define BASE_ROT_SPEED 2.0f
+# define BASE_MOVE_SPEED 3.0
+# define BASE_ROT_SPEED 2.0
 
 // minimap
 # define TEX_SIZE 15
@@ -43,7 +42,7 @@
 # define VIEW_RADIUS 4
 
 // mouse
-# define MOUSE_SENS 0.003f
+# define MOUSE_SENS 0.003
 
 // door
 # define DOOR_DIST 1.2
@@ -78,29 +77,29 @@ typedef struct s_game			t_game;
 // structs
 struct						s_player
 {
-	float					pos_x;
-	float					pos_y;
-	float					dir_x;
-	float					dir_y;
-	float					plane_x;
-	float					plane_y;
+	double					pos_x;
+	double					pos_y;
+	double					dir_x;
+	double					dir_y;
+	double					plane_x;
+	double					plane_y;
 };
 
 struct						s_ray
 {
-	float					camera_x;
-	float					raydir_x;
-	float					raydir_y;
+	double					camera_x;
+	double					raydir_x;
+	double					raydir_y;
 	int						map_x;
 	int						map_y;
-	float					delta_dist_x;
-	float					delta_dist_y;
+	double					delta_dist_x;
+	double					delta_dist_y;
 	int						step_x;
 	int						step_y;
-	float					sidedist_x;
-	float					sidedist_y;
+	double					sidedist_x;
+	double					sidedist_y;
 	int						side;
-	float					perpwall_dist;
+	double					perpwall_dist;
 	int						line_height;
 	int						draw_start;
 	int						draw_end;
@@ -141,8 +140,8 @@ enum						e_key
 
 struct						s_sprite
 {
-	float					x;
-	float					y;
+	double					x;
+	double					y;
 	int						tex_id;
 };
 
@@ -218,9 +217,9 @@ struct						s_draw
 	int						color;
 	int						tex_x;
 	int						tex_y;
-	float					wall_x;
-	float					step;
-	float					tex_pos;
+	double					wall_x;
+	double					step;
+	double					tex_pos;
 };
 
 struct						s_game
@@ -298,7 +297,7 @@ void						move_left(void);
 void						move_right(void);
 
 // rotate
-void						rotate(float angle);
+void						rotate(double angle);
 void						rotate_left(void);
 void						rotate_right(void);
 
