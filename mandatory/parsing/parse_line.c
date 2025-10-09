@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_line.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klamachi <klamachi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:15:22 by klamachi          #+#    #+#             */
-/*   Updated: 2025/09/29 13:15:25 by klamachi         ###   ########.fr       */
+/*   Updated: 2025/10/09 21:00:19 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,12 @@ static int	assign_color(int *id, char *line)
 	i = 0;
 	while (i < 3)
 	{
-		if (!is_numeric(arr[i]))
-			return (write_error("Input file: Invalid color\n"));
-		a[i] = ft_atoi(arr[i]);
-		if (a[i] < 0 || a[i] > 255)
-			return (write_error("Input file: Invalid color\n"));
+		a[i] = convert_color(arr[i]);
 		i++;
 	}
 	*id = create_rgb(a[0], a[1], a[2]);
 	return (0);
 }
-// handle atoi overflow
 
 static int	parse_id(char *line)
 {

@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/24 20:30:16 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/10/09 18:45:08 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/09 20:13:41 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static int	check_collision(int y, int x)
 	t_map	*map;
 
 	map = &game_data()->map;
-	return (y >= 0 && y <= map->map_height && x >= 0 && x <= map->map_width
-		&& map->map[y][x] != '1' && map->map[y][x] != 'd');
+	return (y < 0 || y > map->map_height || x < 0 || x > map->map_width
+		|| map->map[y][x] == '1' || map->map[y][x] == 'd');
 }
 
 void	move_up(void)

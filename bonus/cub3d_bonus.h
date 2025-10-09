@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 09:39:27 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/10/09 18:45:24 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/09 21:01:00 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 # include <stdlib.h>
 # include <sys/time.h>
 # include <unistd.h>
-// delete 
-# include <stdio.h>
 
 # define WIDTH 800
 # define HEIGHT 600
@@ -58,21 +56,21 @@
 # endif
 
 // typedef
-typedef struct s_player			t_player;
-typedef struct s_ray			t_ray;
-typedef struct s_img			t_img;
-typedef enum e_dir				t_dir;
-typedef enum e_key				t_key;
-typedef struct s_sprite			t_sprite;
-typedef struct s_minimap		t_minimap;
-typedef struct s_input			t_input;
-typedef struct s_malloc			t_malloc;
-typedef struct s_map			t_map;
-typedef struct s_mlx			t_mlx;
-typedef struct s_mouse			t_mouse;
-typedef struct s_time			t_time;
-typedef struct s_draw			t_draw;
-typedef struct s_game			t_game;
+typedef struct s_player		t_player;
+typedef struct s_ray		t_ray;
+typedef struct s_img		t_img;
+typedef enum e_dir			t_dir;
+typedef enum e_key			t_key;
+typedef struct s_sprite		t_sprite;
+typedef struct s_minimap	t_minimap;
+typedef struct s_input		t_input;
+typedef struct s_malloc		t_malloc;
+typedef struct s_map		t_map;
+typedef struct s_mlx		t_mlx;
+typedef struct s_mouse		t_mouse;
+typedef struct s_time		t_time;
+typedef struct s_draw		t_draw;
+typedef struct s_game		t_game;
 
 // structs
 struct						s_player
@@ -253,7 +251,7 @@ int							parse_line(char *line, int fd);
 
 // parse_line_utils
 int							invalid_file_content(void);
-int							ft_atoi(const char *str);
+int							convert_color(const char *str);
 int							count_array(char **arr);
 char						**append_arr(char **arr, char *line, int l);
 
@@ -339,8 +337,8 @@ char						*ft_strchr(const char *s, int c);
 // line_utils
 int							ft_isspace(char c);
 int							is_empty_line(char *line);
-int							is_numeric(char *str);
 int							write_error(char *str);
+int							exit_error(char *str);
 
 // clean
 int							clean(void *p);

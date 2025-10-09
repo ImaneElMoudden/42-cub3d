@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 15:11:59 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/09/25 10:30:46 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/09 20:37:49 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,16 @@ int	is_empty_line(char *line)
 	return (1);
 }
 
-static int	ft_isdigit(int c)
-{
-	return (c >= '0' && c <= '9');
-}
-
-int	is_numeric(char *str)
-{
-	while (*str)
-	{
-		if (!ft_isdigit(*str))
-			return (0);
-		str++;
-	}
-	return (1);
-}
-
 int	write_error(char *str)
 {
 	write(2, "Error\n", ft_strlen("Error\n"));
 	write(2, str, ft_strlen(str));
+	return (1);
+}
+
+int	exit_error(char *str)
+{
+	write_error(str);
+	clean((void *)1);
 	return (1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_line_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klamachi <klamachi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:12:09 by klamachi          #+#    #+#             */
-/*   Updated: 2025/09/29 13:12:11 by klamachi         ###   ########.fr       */
+/*   Updated: 2025/10/09 21:00:40 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,31 +22,29 @@ int	invalid_file_content(void)
 		|| game->input.ceiling_color == -1);
 }
 
-int	ft_atoi(const char *str)
+static int	ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
+
+int	convert_color(const char *str)
 {
 	int	i;
-	int	s;
 	int	r;
 
 	i = 0;
-	s = 1;
 	r = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+	while (str[i] == ' ')
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (str[i])
 	{
-		if (str[i] == '-')
-			s = -s;
-		i++;
-	}
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
-	{
+		if (!ft_isdigit(str[i]) || (r * 10 + (str[i] - 48)) > 255)
+			return (exit_error("Input file: Invalid color\n"));
 		r = r * 10 + (str[i] - 48);
 		i++;
 	}
-	return (s * r);
+	return (r);
 }
-// atoi needs to change to handle overflow
 
 int	count_array(char **arr)
 {
