@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:55:59 by klamachi          #+#    #+#             */
-/*   Updated: 2025/10/09 21:02:01 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/10 14:47:06 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,6 +203,7 @@ void					*ft_memset(void *s, int c, size_t n);
 int						ft_isspace(char c);
 int						is_empty_line(char *line);
 int						write_error(char *str);
+int						exit_error(char *str);
 // malloc.c
 void					*safe_malloc(size_t size);
 void					safe_free(void);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   safe_malloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klamachi <klamachi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:12:47 by klamachi          #+#    #+#             */
-/*   Updated: 2025/09/29 13:12:50 by klamachi         ###   ########.fr       */
+/*   Updated: 2025/10/10 14:31:25 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ char	*safe_strjoin(char const *s1, char const *s2)
 	if (!s2)
 		s2 = safe_strdup("");
 	p = safe_malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
-	if (!p)
-		return (NULL);
 	st = p;
 	while (*s1)
 	{
@@ -45,8 +43,6 @@ char	*safe_strdup(const char *s)
 	size_t	i;
 
 	str = safe_malloc(ft_strlen(s) + 1);
-	if (str == NULL)
-		return (NULL);
 	i = 0;
 	while (s[i])
 	{
@@ -67,16 +63,12 @@ char	*safe_substr(char const *s, unsigned int start, size_t len)
 	if (start >= (unsigned int)ft_strlen(s))
 	{
 		p = safe_malloc(1);
-		if (!p)
-			return (NULL);
 		p[0] = '\0';
 		return (p);
 	}
 	if (len >= ft_strlen(s) - start)
 		len = ft_strlen(s) - start;
 	p = safe_malloc((len + 1) * sizeof(char));
-	if (!p)
-		return (NULL);
 	i = 0;
 	while (i < len)
 		p[i++] = s[start++];

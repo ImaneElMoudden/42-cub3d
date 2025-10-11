@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 09:39:27 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/10/09 21:01:00 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/10 14:33:55 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -280,7 +280,6 @@ void						handle_frames(void);
 void						raycast(void);
 
 // draw
-void						draw_background(t_img *img, int ceiling, int floor);
 void						draw(int x);
 
 // handle_keys

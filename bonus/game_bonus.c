@@ -6,13 +6,13 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 18:05:20 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/09/26 10:53:15 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/10 21:45:49 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-void	update_player_pos(void)
+static void	update_player_pos(void)
 {
 	t_mlx	*mlx;
 
@@ -52,7 +52,7 @@ static void	process_mouse(void)
 	mouse->y = center_y;
 }
 
-void	draw_background(t_img *img, int ceiling, int floor)
+static void	draw_background(t_img *img, int ceiling, int floor)
 {
 	int	x;
 	int	y;

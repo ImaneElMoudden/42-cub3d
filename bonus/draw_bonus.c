@@ -6,13 +6,13 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/24 10:33:34 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/10/09 18:39:20 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/10 17:08:00 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-static t_img	*select_imgture(void)
+static t_img	*select_image(void)
 {
 	t_game	*game;
 	t_img	*tex;
@@ -23,16 +23,16 @@ static t_img	*select_imgture(void)
 	if (ray->side == 0)
 	{
 		if (ray->raydir_x > 0)
-			tex = &game->mlx.tex[WEST];
-		else
 			tex = &game->mlx.tex[EAST];
+		else
+			tex = &game->mlx.tex[WEST];
 	}
 	else
 	{
 		if (ray->raydir_y > 0)
-			tex = &game->mlx.tex[NORTH];
-		else
 			tex = &game->mlx.tex[SOUTH];
+		else
+			tex = &game->mlx.tex[NORTH];
 	}
 	if (game->map.map[ray->map_y][ray->map_x] == 'd')
 		tex = &game->mlx.tex[CLOSED_DOOR];
@@ -103,7 +103,7 @@ void	draw(int x)
 	draw = &game->draw;
 	player = &game->player;
 	ray = &game->ray;
-	texture = select_imgture();
+	texture = select_image();
 	calculations(game, texture);
 	draw_stripe(x, texture);
 }

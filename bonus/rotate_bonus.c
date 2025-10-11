@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 20:05:40 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/10/09 18:37:46 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/10 21:46:56 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	rotate(double angle)
 	p = &game_data()->player;
 	old_dir_x = p->dir_x;
 	old_plane_x = p->plane_x;
-	c = cosf(angle);
-	s = sinf(angle);
+	c = cos(angle);
+	s = sin(angle);
 	p->dir_x = p->dir_x * c - p->dir_y * s;
 	p->dir_y = old_dir_x * s + p->dir_y * c;
 	p->plane_x = p->plane_x * c - p->plane_y * s;

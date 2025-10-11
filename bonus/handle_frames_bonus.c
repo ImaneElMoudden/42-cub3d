@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_frames_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klamachi <klamachi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 22:38:36 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/09/26 20:25:31 by klamachi         ###   ########.fr       */
+/*   Updated: 2025/10/10 21:46:07 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,6 @@ void	handle_frames(void)
 	time->delta_time = time->elapsed;
 	time->last_time = time->now;
 }
+
+// remove usleep
+// update frames
