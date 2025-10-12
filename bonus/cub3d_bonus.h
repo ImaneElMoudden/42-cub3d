@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 09:39:27 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/10/10 14:33:55 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/12 17:54:15 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@
 # define FOV 60
 
 // movement
-# define BASE_MOVE_SPEED 3.0
-# define BASE_ROT_SPEED 2.0
+# define MOVE_SPEED 3.0
+# define ROT_SPEED 2.0
 
 // minimap
 # define TEX_SIZE 15
@@ -251,7 +251,7 @@ int							parse_line(char *line, int fd);
 
 // parse_line_utils
 int							invalid_file_content(void);
-int							convert_color(const char *str);
+int							convert_color(char *str);
 int							count_array(char **arr);
 char						**append_arr(char **arr, char *line, int l);
 
@@ -288,15 +288,8 @@ int							handle_key_release(int key, void *p);
 int							mouse_movement(int x, int y, void *p);
 
 // movement
-void						move_up(void);
-void						move_down(void);
-void						move_left(void);
-void						move_right(void);
-
-// rotate
+void						move(double dir1, double dir2);
 void						rotate(double angle);
-void						rotate_left(void);
-void						rotate_right(void);
 
 // door
 void						handle_door(t_map *map);

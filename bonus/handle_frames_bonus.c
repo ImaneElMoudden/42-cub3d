@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 22:38:36 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/10/10 21:46:07 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/12 17:45:25 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ double	get_time_in_seconds(void)
 
 void	handle_frames(void)
 {
-	t_time			*time;
+	t_time	*time;
 
 	time = &game_data()->time;
 	time->now = get_time_in_seconds();
@@ -36,6 +36,3 @@ void	handle_frames(void)
 	time->delta_time = time->elapsed;
 	time->last_time = time->now;
 }
-
-// remove usleep
-// update frames

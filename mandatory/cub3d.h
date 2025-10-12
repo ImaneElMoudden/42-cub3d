@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:55:59 by klamachi          #+#    #+#             */
-/*   Updated: 2025/10/10 14:47:06 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/12 17:54:15 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@
 # define FOV 60.0
 
 // movement
-# define BASE_MOVE_SPEED 3.0
-# define BASE_ROT_SPEED 2.0
+# define MOVE_SPEED 3.0
+# define ROT_SPEED 2.0
 
 // gnl
 # ifndef BUFFER_SIZE
@@ -209,7 +209,7 @@ void					*safe_malloc(size_t size);
 void					safe_free(void);
 // parse_line_utils.c
 int						invalid_file_content(void);
-int						convert_color(const char *str);
+int						convert_color(char *str);
 int						count_array(char **arr);
 char					**append_arr(char **arr, char *line, int l);
 // parse_line.c

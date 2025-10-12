@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 21:24:50 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/10/09 20:39:51 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/12 17:52:38 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,23 @@
 static int	assign_path(char **id, char *line)
 {
 	int	c;
+	int	n;
 
+	n = 0;
 	while (*line && ft_isspace(*line))
 		line++;
 	c = 0;
-	while (line[c] && !ft_isspace(*line))
+	while (line[c] && !ft_isspace(line[c]))
 		c++;
 	if (!c)
 		return (write_error("Input file: Invalid texture path\n"));
+	n = c;
+	while (line[n])
+	{
+		if (line[n] != ' ')
+			return (write_error("Input file: Invalid texture path\n"));
+		n++;
+	}
 	*id = safe_substr(line, 0, c);
 	return (0);
 }

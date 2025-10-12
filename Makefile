@@ -14,7 +14,7 @@ SRC_BONUS = bonus/cub3d_bonus.c bonus/init_bonus.c \
 		bonus/line_utils_bonus.c bonus/string_utils_bonus.c bonus/malloc_bonus.c bonus/safe_malloc_bonus.c \
 		bonus/config_bonus.c bonus/init_mlx_bonus.c \
 		bonus/game_bonus.c bonus/raycast_bonus.c bonus/draw_bonus.c bonus/handle_keys_bonus.c bonus/handle_frames_bonus.c \
-		bonus/movement_bonus.c bonus/rotate_bonus.c \
+		bonus/movement_bonus.c \
 		bonus/minimap_bonus.c bonus/minimap_utils_bonus.c bonus/door_bonus.c \
 		bonus/color_utils_bonus.c \
 		bonus/clean_bonus.c

@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:15:10 by klamachi          #+#    #+#             */
-/*   Updated: 2025/10/09 18:47:16 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/11 10:48:54 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static int	validate_grid(int i, int j, char c, int *count)
 	if (is_player_tile(c))
 	{
 		(*count)++;
-		game->player.pos_x = j + 0.5f;
-		game->player.pos_y = i + 0.5f;
+		game->player.pos_x = j + 0.5;
+		game->player.pos_y = i + 0.5;
 		game->input.player_dir = c;
 		game_data()->map.map[i][j] = '0';
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klamachi <klamachi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:26:31 by klamachi          #+#    #+#             */
-/*   Updated: 2025/09/29 13:33:53 by klamachi         ###   ########.fr       */
+/*   Updated: 2025/10/12 18:19:17 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ static void	draw_walls(t_game *game, t_ray *ray, int x, int y)
 		draw->wall_x = game->player.pos_x + ray->perpwall_dist * ray->raydir_x;
 	draw->wall_x -= floor(draw->wall_x);
 	draw->tex_x = texture->width * draw->wall_x;
+	if ((ray->side == 0 && ray->raydir_x < 0) || (ray->side == 1
+			&& ray->raydir_y > 0))
+		draw->tex_x = texture->width - draw->tex_x - 1;
 	draw->tex_pos = (ray->draw_start + ray->line_height / 2.0 - HEIGHT / 2.0)
 		* draw->step;
 	while (y < ray->draw_end)

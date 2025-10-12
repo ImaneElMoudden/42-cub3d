@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/24 20:30:16 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/10/09 20:13:41 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/12 17:55:51 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,78 +21,36 @@ static int	check_collision(int y, int x)
 		|| map->map[y][x] == '1' || map->map[y][x] == 'd');
 }
 
-void	move_up(void)
+void	move(double dir1, double dir2)
 {
 	t_game		*game;
 	t_player	*player;
-	double		new_x;
-	double		new_y;
-	double		move_speed;
+	double		nx;
+	double		ny;
+	double		speed;
 
 	game = game_data();
 	player = &game->player;
-	move_speed = BASE_MOVE_SPEED * game->time.delta_time;
-	new_x = player->pos_x + player->dir_x * move_speed;
-	new_y = player->pos_y + player->dir_y * move_speed;
-	if (check_collision((int)new_y, (int)new_x))
+	speed = MOVE_SPEED * game->time.delta_time;
+	nx = player->pos_x + dir1 * speed;
+	ny = player->pos_y + dir2 * speed;
+	if (check_collision((int)ny, (int)nx))
 		return ;
-	player->pos_x = new_x;
-	player->pos_y = new_y;
+	player->pos_x = nx;
+	player->pos_y = ny;
 }
 
-void	move_down(void)
+void	rotate(double angle)
 {
-	t_game		*game;
-	t_player	*player;
-	double		new_x;
-	double		new_y;
-	double		move_speed;
+	t_player	*p;
+	double		old_dir_x;
+	double		old_plane_x;
 
-	game = game_data();
-	player = &game->player;
-	move_speed = BASE_MOVE_SPEED * game->time.delta_time;
-	new_x = player->pos_x - player->dir_x * move_speed;
-	new_y = player->pos_y - player->dir_y * move_speed;
-	if (check_collision((int)new_y, (int)new_x))
-		return ;
-	player->pos_x = new_x;
-	player->pos_y = new_y;
-}
-
-void	move_left(void)
-{
-	t_game		*game;
-	t_player	*player;
-	double		new_x;
-	double		new_y;
-	double		move_speed;
-
-	game = game_data();
-	player = &game->player;
-	move_speed = BASE_MOVE_SPEED * game->time.delta_time;
-	new_x = player->pos_x + player->dir_y * move_speed;
-	new_y = player->pos_y - player->dir_x * move_speed;
-	if (check_collision((int)new_y, (int)new_x))
-		return ;
-	player->pos_x = new_x;
-	player->pos_y = new_y;
-}
-
-void	move_right(void)
-{
-	t_game		*game;
-	t_player	*player;
-	double		new_x;
-	double		new_y;
-	double		move_speed;
-
-	game = game_data();
-	player = &game->player;
-	move_speed = BASE_MOVE_SPEED * game->time.delta_time;
-	new_x = player->pos_x - player->dir_y * move_speed;
-	new_y = player->pos_y + player->dir_x * move_speed;
-	if (check_collision((int)new_y, (int)new_x))
-		return ;
-	player->pos_x = new_x;
-	player->pos_y = new_y;
+	p = &game_data()->player;
+	old_dir_x = p->dir_x;
+	old_plane_x = p->plane_x;
+	p->dir_x = p->dir_x * cos(angle) - p->dir_y * sin(angle);
+	p->dir_y = old_dir_x * sin(angle) + p->dir_y * cos(angle);
+	p->plane_x = p->plane_x * cos(angle) - p->plane_y * sin(angle);
+	p->plane_y = old_plane_x * sin(angle) + p->plane_y * cos(angle);
 }

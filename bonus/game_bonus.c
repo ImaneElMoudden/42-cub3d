@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 18:05:20 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/10/10 21:45:49 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/12 18:15:41 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,25 @@
 
 static void	update_player_pos(void)
 {
-	t_mlx	*mlx;
+	t_game		*game;
+	t_mlx		*mlx;
+	t_player	*player;
 
-	mlx = &game_data()->mlx;
+	game = game_data();
+	mlx = &game->mlx;
+	player = &game->player;
 	if (mlx->keys[KEY_W])
-		move_up();
-	if (mlx->keys[KEY_A])
-		move_left();
+		move(player->dir_x, player->dir_y);
 	if (mlx->keys[KEY_S])
-		move_down();
+		move(-player->dir_x, -player->dir_y);
+	if (mlx->keys[KEY_A])
+		move(player->dir_y, -player->dir_x);
 	if (mlx->keys[KEY_D])
-		move_right();
+		move(-player->dir_y, player->dir_x);
 	if (mlx->keys[KEY_LEFT])
-		rotate_left();
+		rotate(-ROT_SPEED * game->time.delta_time);
 	if (mlx->keys[KEY_RIGHT])
-		rotate_right();
+		rotate(ROT_SPEED * game->time.delta_time);
 }
 
 static void	process_mouse(void)

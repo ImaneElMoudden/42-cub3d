@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_frames.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klamachi <klamachi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 15:11:15 by klamachi          #+#    #+#             */
-/*   Updated: 2025/09/29 15:11:16 by klamachi         ###   ########.fr       */
+/*   Updated: 2025/10/12 17:00:23 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,15 @@ double	get_time_in_seconds(void)
 
 void	frames_handler(void)
 {
-	t_time			*time;
+	t_time	*time;
 
 	time = &game_data()->time;
 	time->now = get_time_in_seconds();
 	time->elapsed = time->now - time->last_time;
 	if (time->elapsed < time->target)
 	{
-		usleep((useconds_t)((time->target - time->elapsed) * 1000000.0));
+		while ((get_time_in_seconds() - time->last_time) < time->target)
+			;
 		time->now = get_time_in_seconds();
 		time->elapsed = time->now - time->last_time;
 	}

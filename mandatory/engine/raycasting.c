@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: klamachi <klamachi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:48:41 by klamachi          #+#    #+#             */
-/*   Updated: 2025/09/29 13:50:37 by klamachi         ###   ########.fr       */
+/*   Updated: 2025/10/12 10:24:53 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,6 @@ static void	line_length(t_ray *ray)
 		ray->draw_end = HEIGHT - 1;
 }
 
-static void	ft_delta_dist(t_ray *ray)
-{
-	ray->delta_dist_x = 1 / fabs(ray->raydir_x);
-	if (ray->raydir_x == 0)
-		ray->delta_dist_x = INFINITY;
-	ray->delta_dist_y = 1 / fabs(ray->raydir_y);
-	if (ray->raydir_y == 0)
-		ray->delta_dist_y = INFINITY;
-}
-
 static void	init_side_dist(t_player *player, t_ray *ray)
 {
 	if (ray->raydir_x < 0)
@@ -49,20 +39,20 @@ static void	init_side_dist(t_player *player, t_ray *ray)
 	}
 	else
 	{
-		ray->sidedist_x = ray->delta_dist_x
-			* (floor(player->pos_x + 1.0) - player->pos_x);
+		ray->sidedist_x = ray->delta_dist_x * (floor(player->pos_x + 1.0)
+				- player->pos_x);
 		ray->step_x = 1;
 	}
 	if (ray->raydir_y < 0)
 	{
-		ray->sidedist_y = ray->delta_dist_y
-			* (player->pos_y - floor(player->pos_y));
+		ray->sidedist_y = ray->delta_dist_y * (player->pos_y
+				- floor(player->pos_y));
 		ray->step_y = -1;
 	}
 	else
 	{
-		ray->sidedist_y = ray->delta_dist_y
-			* (floor(player->pos_y + 1.0) - player->pos_y);
+		ray->sidedist_y = ray->delta_dist_y * (floor(player->pos_y + 1.0)
+				- player->pos_y);
 		ray->step_y = 1;
 	}
 }
@@ -111,7 +101,8 @@ void	raycasting(void)
 		ray->camera_x = 2.0 * x / WIDTH - 1.0;
 		ray->raydir_x = player->dir_x + player->plane_x * ray->camera_x;
 		ray->raydir_y = player->dir_y + player->plane_y * ray->camera_x;
-		ft_delta_dist(ray);
+		ray->delta_dist_x = 1 / fabs(ray->raydir_x);
+		ray->delta_dist_y = 1 / fabs(ray->raydir_y);
 		init_side_dist(player, ray);
 		dda_loop(player, ray);
 		line_length(ray);

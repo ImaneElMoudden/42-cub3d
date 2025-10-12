@@ -6,7 +6,7 @@
 /*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/06 14:26:50 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/10/09 20:39:12 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/12 18:15:57 by ielmoudd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,30 @@ static int	ft_isdigit(int c)
 	return (c >= '0' && c <= '9');
 }
 
-int	convert_color(const char *str)
+int	convert_color(char *str)
 {
 	int	i;
 	int	r;
 
 	i = 0;
 	r = 0;
-	while (str[i] == ' ')
-		i++;
+	while (*str == ' ')
+		str++;
 	while (str[i])
 	{
+		if (str[i] == ' ')
+			break ;
 		if (!ft_isdigit(str[i]) || (r * 10 + (str[i] - 48)) > 255)
 			return (exit_error("Input file: Invalid color\n"));
 		r = r * 10 + (str[i] - 48);
+		i++;
+	}
+	if (!i)
+		return (exit_error("Input file: Invalid color\n"));
+	while (str[i])
+	{
+		if (str[i] != ' ')
+			return (exit_error("Input file: Invalid color\n"));
 		i++;
 	}
 	return (r);

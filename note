@@ -1,2 +1,4 @@
-remove usleep mandatory
-update mandatory movement
+compile with gcc
+// update frames
+mandatory/engine/draw.c norm
+modify maps
