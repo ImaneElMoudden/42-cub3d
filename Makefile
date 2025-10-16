@@ -25,8 +25,6 @@ OBJ = $(SRC:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 HDR = mandatory/cub3d.h
 HDR_BONUS = bonus/cub3d_bonus.h
-# $(OBJ): $(HDR)
-# $(OBJ_BONUS): $(HDR_BONUS)
 MLXFLAGS = -L/usr/include/minilibx-linux -lmlx -lX11 -lXext -lm
 
 all: $(NAME)
@@ -48,38 +46,3 @@ fclean:	clean
 re: fclean all
 
 .PHONY: all clean fclean re bonus
-
-# Imane's Makefile
-
-# CFLAGS = -Wall -Wextra -Werror
-# SRC_BONUS = Bonus/cub3d_bonus.c Bonus/init_bonus.c \
-# 		Bonus/parse_bonus.c Bonus/parse_line_bonus.c Bonus/parse_line_utils_bonus.c \
-# 		Bonus/validate_map_bonus.c Bonus/validate_map_borders_bonus.c \
-# 		Bonus/ft_split_bonus.c Bonus/get_next_line_bonus.c \
-# 		Bonus/line_utils_bonus.c Bonus/string_utils_bonus.c Bonus/malloc_bonus.c Bonus/safe_malloc_bonus.c \
-# 		Bonus/config_bonus.c Bonus/init_mlx_bonus.c \
-# 		Bonus/game_bonus.c Bonus/raycast_bonus.c Bonus/draw_bonus.c Bonus/handle_keys_bonus.c Bonus/handle_frames_bonus.c \
-# 		Bonus/movement_bonus.c Bonus/rotate_bonus.c \
-# 		Bonus/minimap_bonus.c Bonus/door_bonus.c \
-# 		Bonus/color_utils_bonus.c \
-# 		Bonus/clean_bonus.c \
-
-# NAME = cub3D_bonus
-# OBJ = $(SRC:.c=.o)
-# MLXFLAGS = -L/usr/include/minilibx-linux -lmlx -lX11 -lXext -lm -g
-# HDR = Bonus/cub3d_bonus.h
-
-# all: $(NAME)
-
-# $(NAME): $(OBJ) $(HDR)
-# 	cc $(CFLAGS) $(OBJ) $(MLXFLAGS) -o $(NAME)
-
-# clean:
-# 	rm -rf $(OBJ)
-
-# fclean:	clean
-# 	rm -rf $(NAME)
-
-# re: fclean all
-
-# .PHONY = all clean fclean re
