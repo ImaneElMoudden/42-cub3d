@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: klamachi <klamachi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 13:26:31 by klamachi          #+#    #+#             */
-/*   Updated: 2025/10/12 18:19:17 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/16 10:03:29 by klamachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,27 @@ static t_img	*which_img(t_ray *ray)
 	return (&mlx->tex[SOUTH]);
 }
 
+static void	draw_texture_column(t_img *texture, t_draw *draw, int x, int y)
+{
+	t_game			*game;
+	unsigned int	*pixel_addr;
+
+	game = game_data();
+	while (y < game->ray.draw_end)
+	{
+		draw->tex_y = floor(draw->tex_pos);
+		draw->tex_pos += draw->step;
+		pixel_addr = (unsigned int *)(texture->addr + draw->tex_y
+				* texture->line_len + draw->tex_x * (texture->bpp / 8));
+		put_pixel(&game->mlx.img, x, y, *pixel_addr);
+		y++;
+	}
+}
+
 static void	draw_walls(t_game *game, t_ray *ray, int x, int y)
 {
 	t_img			*texture;
 	t_draw			*draw;
-	unsigned int	*pixel_addr;
 
 	texture = which_img(ray);
 	draw = &game->draw;
@@ -48,15 +64,7 @@ static void	draw_walls(t_game *game, t_ray *ray, int x, int y)
 		draw->tex_x = texture->width - draw->tex_x - 1;
 	draw->tex_pos = (ray->draw_start + ray->line_height / 2.0 - HEIGHT / 2.0)
 		* draw->step;
-	while (y < ray->draw_end)
-	{
-		draw->tex_y = floor(draw->tex_pos);
-		draw->tex_pos += draw->step;
-		pixel_addr = (unsigned int *)(texture->addr + draw->tex_y
-				* texture->line_len + draw->tex_x * (texture->bpp / 8));
-		put_pixel(&game->mlx.img, x, y, *pixel_addr);
-		y++;
-	}
+	draw_texture_column(texture, draw, x, y);
 }
 
 void	fr_draw(t_ray *ray, int x)

@@ -6,7 +6,7 @@
 /*   By: klamachi <klamachi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 15:53:43 by klamachi          #+#    #+#             */
-/*   Updated: 2025/10/09 15:44:38 by klamachi         ###   ########.fr       */
+/*   Updated: 2025/10/16 09:39:30 by klamachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,17 @@ static void	draw_player_dot(t_game *game, t_minimap *minimap,
 	int				pixel_x;
 	int				pixel_y;
 
-	minimap->y = -VIEW_RADIUS;
+	minimap->y = -PLAYER_SIZE;
 	minimap->player_pixel_x = minimap->player_pos_x * TEX_SIZE;
 	minimap->player_pixel_y = minimap->player_pos_y * TEX_SIZE;
-	while (minimap->y < VIEW_RADIUS)
+	while (minimap->y < PLAYER_SIZE)
 	{
-		minimap->x = -VIEW_RADIUS;
-		while (minimap->x < VIEW_RADIUS)
+		minimap->x = -PLAYER_SIZE;
+		while (minimap->x < PLAYER_SIZE)
 		{
 			pixel_x = minimap->player_pixel_x + minimap->x + OFFSET;
 			pixel_y = minimap->player_pixel_y + minimap->y + OFFSET;
-			if (sqrt(minimap->x * minimap->x + minimap->y * minimap->y)
-				< VIEW_RADIUS)
-				put_pixel(&game->mlx.img, pixel_x, pixel_y, color);
+			put_pixel(&game->mlx.img, pixel_x, pixel_y, color);
 			minimap->x++;
 		}
 		minimap->y++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ielmoudd <ielmoudd@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: klamachi <klamachi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 09:39:27 by ielmoudd          #+#    #+#             */
-/*   Updated: 2025/10/12 17:54:15 by ielmoudd         ###   ########.fr       */
+/*   Updated: 2025/10/16 09:41:14 by klamachi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 // minimap
 # define TEX_SIZE 15
 # define OFFSET 20
-# define VIEW_RADIUS 4
+# define PLAYER_SIZE 3
 
 // mouse
 # define MOUSE_SENS 0.003
